@@ -1,0 +1,26 @@
+{
+  "name": "hold-a-sword",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "dev": "webpack --config ./build/webpack.dev.js",
+    "prod": "webpack --config ./build/webpack.prod.js",
+    "ci": "npm run prod"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "circular-dependency-plugin": "^5.2.2",
+    "clean-webpack-plugin": "^4.0.0",
+    "html-webpack-plugin": "^5.5.0",
+    "nodemon": "^2.0.20",
+    "terser-webpack-plugin": "^5.3.6",
+    "trim": "^1.0.1",
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.0",
+    "webpack-merge": "^5.8.0",
+    "webpack-strip-block": "^0.3.0",
+    "worker-loader": "^3.0.8"
+  }
+}
