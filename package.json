@@ -1,12 +1,14 @@
 {
   "name": "hold-a-sword",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "",
   "main": "main.js",
   "scripts": {
     "dev": "webpack --config ./build/webpack.dev.js",
     "prod": "webpack --config ./build/webpack.prod.js",
-    "ci": "npm run prod"
+    "lint": "eslint src --ext .js,.jsx,.ts,.tsx --fix",
+    "ci": "npm run lint && npm run prod",
+    "prepare": "husky install"
   },
   "author": "",
   "license": "ISC",
@@ -22,5 +24,21 @@
     "webpack-merge": "^5.8.0",
     "webpack-strip-block": "^0.3.0",
     "worker-loader": "^3.0.8"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^17.1.2",
+    "@commitlint/config-conventional": "^17.1.0",
+    "@rushstack/eslint-patch": "^1.2.0",
+    "commitlint": "^17.1.2",
+    "eslint": "^8.23.1",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-react-app": "^7.0.1",
+    "eslint-plugin-import": "^2.26.0",
+    "husky": "^8.0.0"
+  },
+  "lint-staged": {
+    "*.{tsx,ts,js,jsx}": [
+      "eslint --fix"
+    ]
   }
 }
