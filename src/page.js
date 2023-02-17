@@ -5,8 +5,12 @@ const isConsole = window.location.host === 'console.lionet.cloud';
 
 function initialize() {
   if (!isConsole) {
-    return;
+    return '1';
   }
+
+  const a = 1;
+
+  return a;
 }
 
 initialize();
