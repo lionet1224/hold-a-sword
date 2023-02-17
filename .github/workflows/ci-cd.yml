@@ -3,8 +3,6 @@ name: ci-cd
 on:
   push:  
     - 'master'
-  pull_request:  
-    - 'master'
 
 jobs:
   ci:
