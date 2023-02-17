@@ -36,13 +36,6 @@ jobs:
           npm install
           npm run ci
 
-  cd:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2.3.4
-
       # 利用action把build好的文件上传到服务器/var/www/react-app路径下,需要确认此目录已在服务端创建
       - name: cd
         uses: wlixcc/SFTP-Deploy-Action@v1.2.4
