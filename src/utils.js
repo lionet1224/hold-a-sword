@@ -15,5 +15,7 @@ export function Log(...args) {
     }
     return '';
   });
+
+  // eslint-disable-next-line no-console
   console.log(str, ...arr);
 }
