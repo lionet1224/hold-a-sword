@@ -1,17 +1,16 @@
-const path = require("path");
-const webpack = require("webpack");
-const CircularDependencyPlugin = require("circular-dependency-plugin");
-const { getRevision, getVersion } = require("./buildutils");
+const path = require('path');
+const CircularDependencyPlugin = require('circular-dependency-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { getVersion } = require('./buildutils');
 
 module.exports = {
-  mode: "development",
-  devtool: "cheap-source-map",
+  mode: 'development',
+  devtool: 'cheap-source-map',
   entry: {
     main: './main.js',
   },
-  context: path.resolve(__dirname, "../"),
+  context: path.resolve(__dirname, '../'),
   // 将打包文件输出到dist文件夹
   output: {
     filename: '[name]-dev.js',
@@ -23,7 +22,7 @@ module.exports = {
       exclude: /node_modules/,
       failOnError: true,
       allowAsyncCycles: false,
-      cwd: path.join(__dirname, "src"),
+      cwd: path.join(__dirname, 'src'),
     }),
 
     new CleanWebpackPlugin(),
@@ -35,32 +34,32 @@ module.exports = {
       // inject: false,
       minify: {
         collapseWhitespace: true,
-        removeComments: true
+        removeComments: true,
       },
-    })
+    }),
   ],
   module: {
     rules: [
       // json文件被压缩
       {
         test: /\.json$/,
-        enforce: "pre",
-        use: ["./loader.compressjson"],
-        type: "javascript/auto",
+        enforce: 'pre',
+        use: ['./loader.compressjson'],
+        type: 'javascript/auto',
       },
       // js文件
       {
         test: /\.js$/,
-        enforce: "pre",
+        enforce: 'pre',
         exclude: /node_modules/,
         use: [
           {
             // 删除注释代码
-            loader: "webpack-strip-block",
+            loader: 'webpack-strip-block',
             options: {
               // 自定义注释的开始结尾
-              start: "typehints:start",
-              end: "typehints:end",
+              start: 'typehints:start',
+              end: 'typehints:end',
             },
           },
         ],
@@ -69,9 +68,9 @@ module.exports = {
       {
         test: /\.worker\.js$/,
         use: {
-          loader: "worker-loader",
+          loader: 'worker-loader',
           options: {
-            inline: "fallback",
+            inline: 'fallback',
           },
         },
       },
