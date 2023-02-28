@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/lionet1224/hold-a-sword/compare/v1.0.0...v1.1.0) (2023-02-28)
+
+
+### Features
+
+* 完成基本logger函数 ([7222050](https://github.com/lionet1224/hold-a-sword/commit/72220507ad8b0963288565a015c6b23280a095b1))
+
 ## 1.0.0 (2023-02-17)
 
 
