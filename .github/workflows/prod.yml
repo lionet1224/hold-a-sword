@@ -1,4 +1,4 @@
-name: ci-cd
+name: prod
 
 on:
   push:  
@@ -6,7 +6,7 @@ on:
       - 'master'
 
 jobs:
-  ci:
+  prod:
     runs-on: ubuntu-latest
     
     steps:
@@ -33,7 +33,6 @@ jobs:
           npm install
           npm run ci
 
-      # 利用action把build好的文件上传到服务器/var/www/react-app路径下,需要确认此目录已在服务端创建
       - name: cd
         uses: wlixcc/SFTP-Deploy-Action@v1.2.4
         with:
@@ -41,5 +40,5 @@ jobs:
           server: '${{ secrets.SERVER_IP }}' #引用之前创建好的secret
           password: '${{ secrets.SERVER_PASSWORD }}'
           port: 22
-          local_path: './dist'  # 对应我们项目build的文件夹路径
-          remote_path: '/www/wwwroot/hold-a-sword'
+          local_path: './dist/*'  # 对应我们项目build的文件夹路径
+          remote_path: '/www/wwwroot/assets/ConsoleGame'
