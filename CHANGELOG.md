@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.1](https://github.com/lionet1224/hold-a-sword/compare/v1.1.0...v1.1.1) (2023-02-28)
+
+
+### CI
+
+* 修改ci文件 ([257096c](https://github.com/lionet1224/hold-a-sword/commit/257096cd272a676b4730e2e85544551c069c8c95))
+
 ## [1.1.0](https://github.com/lionet1224/hold-a-sword/compare/v1.0.0...v1.1.0) (2023-02-28)
 
 
