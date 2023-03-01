@@ -6,10 +6,6 @@ const DEFAULT_STYLE = {
 };
 
 class Log {
-  constructor(stateName = '') {
-    this.stateName = stateName;
-  }
-
   direct(msg = '', params = []) {
     // eslint-disable-next-line no-console
     console.log(msg, ...params);
@@ -19,6 +15,37 @@ class Log {
     const logParams = this.getLogParams(msg, params);
     // eslint-disable-next-line no-console
     console.log(...logParams);
+  }
+
+  // 人物说话
+  chat(name = '', nameParams = {}, ...args) {
+    if (!nameParams) {
+      nameParams = {
+        color: '#00ff',
+        font: 'bold 12px',
+        marginTop: '5px',
+      };
+    }
+
+    this.section(
+      {
+        msg: `【${name}】：`.padEnd(8, ' '),
+        ...nameParams,
+      },
+      [
+        {
+          type: 'defaultStyle',
+          color: '#555',
+          paddingTop: '5px',
+          lineHeight: '20px',
+        },
+        ...args.map((item) => {
+          if (getType(item) === 'String') return item.split('');
+
+          return item;
+        }).flat(),
+      ],
+    );
   }
 
   /**
@@ -41,7 +68,6 @@ class Log {
     };
 
     const style = Object.keys(params).reduce((result, key) => ({
-      ...DEFAULT_STYLE,
       ...defaultStyle,
       ...result,
       [key]: params[key],
@@ -130,8 +156,8 @@ class Log {
   }
 }
 
-function createLogger(stateName = '') {
-  return new Log(stateName);
+function createLogger() {
+  return new Log();
 }
 
 export default createLogger;
