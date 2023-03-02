@@ -21,7 +21,7 @@ export class HomeState extends State {
         color: 'red',
       },
       '升级....，哈哈哈哈哈，当然我们就是一个这样一个肤浅的游戏。',
-      '欢迎来到执剑的',
+      '\n欢迎来到执剑的',
       {
         msg: '世界',
         color: 'blue',

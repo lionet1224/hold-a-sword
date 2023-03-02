@@ -55,4 +55,4 @@ function bootApp() {
   window.h = h;
 }
 
-window.addEventListener('load', bootApp);
+bootApp();
