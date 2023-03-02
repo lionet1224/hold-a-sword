@@ -1,4 +1,6 @@
-import Application from './src/app';
+import Application from './src/application';
+import { setGlobalApp } from './src/core/app';
+import { H } from './src/core/h';
 import createLogger from './src/core/log';
 
 const logger = createLogger('main');
@@ -14,6 +16,7 @@ logger.section(
     {
       type: 'defaultStyle',
       padding: '5px 0 10px 0',
+      color: '#777',
     },
     '作者: lionet, ',
     'version: ',
@@ -41,10 +44,15 @@ assert(false, '检测typehints是否工作');
 /* typehints:end */
 
 let app = null;
+let h = null;
 
 function bootApp() {
   app = new Application();
+  setGlobalApp(app);
   app.boot();
+
+  h = new H();
+  window.h = h;
 }
 
 window.addEventListener('load', bootApp);
