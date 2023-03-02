@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://github.com/lionet1224/hold-a-sword/compare/v1.1.1...v1.2.0) (2023-03-02)
+
+
+### Features
+
+* 编辑基本页面状态跳转 ([a0d9933](https://github.com/lionet1224/hold-a-sword/commit/a0d9933091afcd27143a2ac70db3647ca9c74c5e))
+
 ## [1.1.1](https://github.com/lionet1224/hold-a-sword/compare/v1.1.0...v1.1.1) (2023-02-28)
 
 
