@@ -1,20 +1,18 @@
+import { setGlobalApp } from './core/app';
+import { GameDataManager } from './core/gameDataManager';
+import { GameRoot } from './core/root';
 import StateManager from './core/stateManager';
-import { HomeState } from './states/home';
+import { PreloadState } from './states/preload';
 
 export default class Application {
   constructor() {
-    /** @type {StateManager} */
-    this.stateManager = null;
+    setGlobalApp(this);
+    this.stateMgr = new StateManager(this);
+    this.root = new GameRoot(this);
+    this.gameDataMgr = new GameDataManager(this);
   }
 
   boot() {
-    this.stateManager = new StateManager();
-    this.stateManager.initialize();
-
-    this.stateManager.to(HomeState);
-  }
-
-  test() {
-    console.log(123);
+    this.stateMgr.to(PreloadState);
   }
 }

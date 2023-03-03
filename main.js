@@ -1,5 +1,4 @@
 import Application from './src/application';
-import { setGlobalApp } from './src/core/app';
 import { H } from './src/core/h';
 import createLogger from './src/core/log';
 
@@ -48,11 +47,10 @@ let h = null;
 
 function bootApp() {
   app = new Application();
-  setGlobalApp(app);
   app.boot();
 
   h = new H();
   window.h = h;
 }
 
-window.addEventListener('load', bootApp);
+bootApp();

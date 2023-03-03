@@ -10,6 +10,9 @@ module.exports = {
     ecmaVersion: 'latest',
   },
   rules: {
+    'no-async-promise-executor': 0,
+    'import/no-cycle': 0,
+    'no-unused-expressions': 0,
     'no-unused-vars': 0,
     'no-undef': 0,
     'class-methods-use-this': 0,

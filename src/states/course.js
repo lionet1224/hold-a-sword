@@ -1,7 +1,7 @@
 import { State } from '../core/state';
 
-export class Course extends State {
-  namee = '初始教程';
+export class CourseState extends State {
+  name = '初始教程';
 
   onEnter() {
   }

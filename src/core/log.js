@@ -17,6 +17,14 @@ class Log {
     console.log(...logParams);
   }
 
+  error(msg = '', params = {}) {
+    const logParams = this.getLogParams(msg, params, {
+      color: 'red',
+    });
+    // eslint-disable-next-line no-console
+    console.error(...logParams);
+  }
+
   // 人物说话
   chat(name = '', nameParams = {}, ...args) {
     if (!nameParams) {
