@@ -1,9 +1,8 @@
-import { HomeState } from '../states/home';
 import debugConfig from './debug';
 
 const config = {
   storageType: 'indexedDB',
-  defaultState: HomeState,
+  defaultState: 'home',
 
   ...(G_IS_DEV ? debugConfig : {}),
 };

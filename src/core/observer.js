@@ -3,7 +3,7 @@ export class Observer {
     this.subscribers = {};
   }
 
-  subscribe(event, callback) {
+  add(event, callback) {
     if (!this.subscribers[event]) {
       this.subscribers[event] = [];
     }
@@ -11,7 +11,7 @@ export class Observer {
     this.subscribers[event].push(callback);
   }
 
-  unsubscribe(event, callback) {
+  remove(event, callback) {
     if (!this.subscribers[event]) {
       return;
     }

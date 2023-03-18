@@ -1,8 +1,8 @@
-import { getType } from '../utils/tools';
+import { getType, padBoth } from '../utils/tools';
 
 const DEFAULT_STYLE = {
   color: '#333',
-  fontSize: '12px',
+  fontSize: '16px',
 };
 
 class Log {
@@ -53,6 +53,35 @@ class Log {
           return item;
         }).flat(),
       ],
+    );
+  }
+
+  /**
+   * 指令段落，用于显示指令
+   * 输入：['指令1', '指令2', '指令3']
+   * 输出：(1). 指令1
+   *      (2). 指令2
+   *      (3). 指令3
+   */
+  command(...args) {
+    this.section(
+      {
+        type: 'defaultStyle',
+        color: '#555',
+        fontSize: '12px',
+        fontWeight: 'bold',
+        marginBottom: '5px',
+        marginTop: '5px',
+      },
+      {
+        msg: padBoth('指令列表', 40, '-'),
+        color: '#999',
+      },
+      ...args,
+      {
+        msg: padBoth('结束', 40, '-'),
+        color: '#999',
+      },
     );
   }
 

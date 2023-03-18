@@ -1,7 +1,5 @@
-import { CourseState } from '../states/course';
-
 export default {
-  defaultState: CourseState,
+  defaultState: 'course',
 
   // indexedDB / localStorage, default: indexedDB
   storageType: 'indexedDB',

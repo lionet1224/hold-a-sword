@@ -15,8 +15,9 @@ export class State {
 
   onEnterBefore() {
     this.logger = createLogger();
-    this.logger.log(padBoth(this.name, 30, '='), {
+    this.logger.log(padBoth(padBoth(this.name, 5, ' '), 25, '='), {
       color: '#888',
+      font: '16px bold',
     });
   }
 

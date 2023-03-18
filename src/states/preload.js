@@ -1,7 +1,5 @@
 import config from '../config';
 import { State } from '../core/state';
-import { CourseState } from './course';
-import { HomeState } from './home';
 
 export class PreloadState extends State {
   name = '初始化';
@@ -17,10 +15,10 @@ export class PreloadState extends State {
         this.logger.log('游戏初始化完成', { fontSize: '10px', color: '#666' });
         this.logger.log(`耗时: ${new Date().getTime() - currentTime}ms`, { fontSize: '10px', color: '#666' });
 
-        let state = config.defaultState || HomeState;
+        let state = config.defaultState || 'home';
 
         if (this.app.root.gameData.needCourse) {
-          state = CourseState;
+          state = 'course';
         }
 
         this.app.stateMgr.to(state);

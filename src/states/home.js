@@ -5,8 +5,6 @@ export class HomeState extends State {
   name = '首页';
 
   onEnter() {
-    this.logger.log('onEnter');
-
     this.logger.chat(
       '系统',
       null,
