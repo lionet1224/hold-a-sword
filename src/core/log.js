@@ -21,7 +21,7 @@ class Log {
   chat(name = '', nameParams = {}, ...args) {
     if (!nameParams) {
       nameParams = {
-        color: '#00ff',
+        color: '#2656c9',
         font: 'bold 12px',
         marginTop: '5px',
       };
