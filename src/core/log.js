@@ -40,7 +40,7 @@ class Log {
           lineHeight: '20px',
         },
         ...args.map((item) => {
-          if (getType(item) === 'String') return item.split('');
+          if (getType(item) === 'String') return item.replace(/%/g, '%%').split('');
 
           return item;
         }).flat(),
@@ -56,7 +56,8 @@ class Log {
   getLogParams(msg = '', params = {}, ...args) {
     const styleText = this.objectToText(params, ...args);
 
-    return [`%c${msg}`, styleText];
+    const safeMsg = String(msg).replace(/%/g, '%%');
+    return [`%c${safeMsg}`, styleText];
   }
 
   objectToText(params = {}, ...args) {

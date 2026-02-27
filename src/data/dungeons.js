@@ -8,16 +8,20 @@ export const DUNGEONS = [
       {
         name: '林间小道',
         monsters: [
-          { name: '野兔', level: 1, hpMul: 0.8, atkMul: 0.6, defMul: 0.4, skills: ['bite'], expReward: 15, goldReward: 10 },
-          { name: '毒蛇', level: 2, hpMul: 0.7, atkMul: 0.8, defMul: 0.3, skills: ['bite', 'poison_spit'], expReward: 20, goldReward: 15 },
+          { name: '野兔', level: 1, hpMul: 0.7, atkMul: 0.5, defMul: 0.3, skills: ['bite'], expReward: 12, goldReward: 8,
+            trashDrop: [{ slot: 'weapon', name: '木棍', prob: 0.3 }, { slot: 'armor', name: '破布衣', prob: 0.2 }] },
+          { name: '毒蛇', level: 1, hpMul: 0.6, atkMul: 0.7, defMul: 0.2, skills: ['bite', 'poison_spit'], expReward: 15, goldReward: 10,
+            trashDrop: [{ slot: 'ring', name: '蛇鳞指环', prob: 0.15 }, { slot: 'necklace', name: '蛇牙项链', prob: 0.1 }] },
         ],
         count: 3,
       },
       {
         name: '密林深处',
         monsters: [
-          { name: '灰狼', level: 2, hpMul: 1.0, atkMul: 0.9, defMul: 0.5, skills: ['bite', 'double_claw'], expReward: 25, goldReward: 20 },
-          { name: '野猪', level: 3, hpMul: 1.3, atkMul: 0.7, defMul: 0.8, skills: ['heavy_strike'], expReward: 30, goldReward: 25 },
+          { name: '灰狼', level: 2, hpMul: 0.85, atkMul: 0.75, defMul: 0.4, skills: ['bite', 'double_claw'], expReward: 20, goldReward: 15,
+            trashDrop: [{ slot: 'helmet', name: '狼皮帽', prob: 0.2 }, { slot: 'armor', name: '狼皮甲', prob: 0.15 }] },
+          { name: '野猪', level: 3, hpMul: 1.0, atkMul: 0.65, defMul: 0.6, skills: ['heavy_strike'], expReward: 25, goldReward: 18,
+            trashDrop: [{ slot: 'weapon', name: '野猪獠牙', prob: 0.2 }] },
         ],
         count: 3,
       },
@@ -25,7 +29,12 @@ export const DUNGEONS = [
         name: 'Boss: 森林巨熊',
         isBoss: true,
         monsters: [
-          { name: '森林巨熊', level: 5, hpMul: 3.0, atkMul: 1.2, defMul: 1.0, skills: ['heavy_strike', 'roar', 'double_claw'], expReward: 100, goldReward: 80, isBoss: true },
+          { name: '森林巨熊', level: 4, hpMul: 2.2, atkMul: 1.0, defMul: 0.8, skills: ['heavy_strike', 'roar', 'double_claw'], expReward: 80, goldReward: 60, isBoss: true,
+            rareDrop: [
+              { type: 'equip', template: { slot: 'weapon', name: '巨熊之爪', fixedAffixes: [{ id: 'atk', value: 8 }, { id: 'hp', value: 20 }] }, prob: 0.2, quality: 'blue' },
+              { type: 'material', id: 'bear_claw', prob: 0.4 },
+            ],
+          },
         ],
         count: 1,
       },
@@ -44,21 +53,25 @@ export const DUNGEONS = [
     id: 'dark_cave',
     name: '幽暗洞穴',
     desc: '阴暗潮湿的洞穴，潜伏着危险的生物。',
-    unlock: { level: 6, cleared: 'green_forest' },
+    unlock: { level: 5, cleared: 'green_forest' },
     stages: [
       {
         name: '洞穴入口',
         monsters: [
-          { name: '洞穴蝙蝠', level: 6, hpMul: 0.8, atkMul: 1.0, defMul: 0.4, skills: ['bite', 'double_claw'], expReward: 40, goldReward: 35 },
-          { name: '石头蜥蜴', level: 7, hpMul: 1.2, atkMul: 0.8, defMul: 1.0, skills: ['heavy_strike'], expReward: 50, goldReward: 40 },
+          { name: '洞穴蝙蝠', level: 5, hpMul: 0.75, atkMul: 0.8, defMul: 0.35, skills: ['bite', 'double_claw'], expReward: 35, goldReward: 25,
+            trashDrop: [{ slot: 'helmet', name: '蝙蝠翼帽', prob: 0.2 }] },
+          { name: '石头蜥蜴', level: 6, hpMul: 1.0, atkMul: 0.7, defMul: 0.8, skills: ['heavy_strike'], expReward: 40, goldReward: 30,
+            trashDrop: [{ slot: 'armor', name: '石鳞甲', prob: 0.2 }, { slot: 'ring', name: '石化指环', prob: 0.1 }] },
         ],
         count: 4,
       },
       {
         name: '地下暗河',
         monsters: [
-          { name: '暗影蜘蛛', level: 8, hpMul: 1.0, atkMul: 1.2, defMul: 0.6, skills: ['poison_spit', 'double_claw'], expReward: 60, goldReward: 50 },
-          { name: '穴居食人鱼', level: 8, hpMul: 0.7, atkMul: 1.4, defMul: 0.3, skills: ['bite', 'fury_combo'], expReward: 65, goldReward: 55 },
+          { name: '暗影蜘蛛', level: 7, hpMul: 0.9, atkMul: 1.0, defMul: 0.5, skills: ['poison_spit', 'double_claw'], expReward: 50, goldReward: 40,
+            trashDrop: [{ slot: 'necklace', name: '蛛丝坠', prob: 0.15 }] },
+          { name: '穴居食人鱼', level: 7, hpMul: 0.65, atkMul: 1.1, defMul: 0.3, skills: ['bite', 'fury_combo'], expReward: 55, goldReward: 45,
+            trashDrop: [{ slot: 'weapon', name: '鱼骨刺', prob: 0.2 }] },
         ],
         count: 4,
       },
@@ -66,7 +79,13 @@ export const DUNGEONS = [
         name: 'Boss: 洞穴巨蛛',
         isBoss: true,
         monsters: [
-          { name: '洞穴巨蛛', level: 10, hpMul: 3.5, atkMul: 1.4, defMul: 1.2, skills: ['poison_spit', 'fury_combo', 'roar', 'double_claw'], expReward: 200, goldReward: 160, isBoss: true },
+          { name: '洞穴巨蛛', level: 8, hpMul: 2.8, atkMul: 1.15, defMul: 0.9, skills: ['poison_spit', 'fury_combo', 'roar', 'double_claw'], expReward: 160, goldReward: 120, isBoss: true,
+            rareDrop: [
+              { type: 'equip', template: { slot: 'necklace', name: '巨蛛毒囊', fixedAffixes: [{ id: 'atk', value: 15 }, { id: 'atkPercent', value: 3 }] }, prob: 0.15, quality: 'purple' },
+              { type: 'material', id: 'spider_fang', prob: 0.35 },
+              { type: 'material', id: 'spider_silk', prob: 0.5 },
+            ],
+          },
         ],
         count: 1,
       },
@@ -85,21 +104,25 @@ export const DUNGEONS = [
     id: 'fire_mountain',
     name: '烈焰火山',
     desc: '炙热的火山地带，只有强者才能生还。',
-    unlock: { level: 12, cleared: 'dark_cave', item: { id: 'fire_crystal', count: 3 } },
+    unlock: { level: 11, cleared: 'dark_cave', item: { id: 'fire_crystal', count: 3 } },
     stages: [
       {
         name: '熔岩地带',
         monsters: [
-          { name: '火焰蜥蜴', level: 12, hpMul: 1.2, atkMul: 1.3, defMul: 0.8, skills: ['bite', 'heavy_strike'], expReward: 90, goldReward: 75 },
-          { name: '岩浆史莱姆', level: 13, hpMul: 1.5, atkMul: 1.0, defMul: 1.2, skills: ['poison_spit', 'roar'], expReward: 100, goldReward: 85 },
+          { name: '火焰蜥蜴', level: 11, hpMul: 1.0, atkMul: 1.0, defMul: 0.65, skills: ['bite', 'heavy_strike'], expReward: 75, goldReward: 60,
+            trashDrop: [{ slot: 'ring', name: '熔岩指环', prob: 0.15 }, { slot: 'weapon', name: '蜥蜴尾刃', prob: 0.1 }] },
+          { name: '岩浆史莱姆', level: 12, hpMul: 1.2, atkMul: 0.85, defMul: 0.9, skills: ['poison_spit', 'roar'], expReward: 85, goldReward: 70,
+            trashDrop: [{ slot: 'armor', name: '岩浆壳甲', prob: 0.15 }] },
         ],
-        count: 5,
+        count: 4,
       },
       {
         name: '火焰通道',
         monsters: [
-          { name: '烈焰元素', level: 14, hpMul: 1.0, atkMul: 1.6, defMul: 0.5, skills: ['fury_combo', 'heavy_strike'], expReward: 120, goldReward: 100 },
-          { name: '火山巨人', level: 15, hpMul: 2.0, atkMul: 1.2, defMul: 1.5, skills: ['heavy_strike', 'roar'], expReward: 140, goldReward: 120 },
+          { name: '烈焰元素', level: 13, hpMul: 0.9, atkMul: 1.2, defMul: 0.45, skills: ['fury_combo', 'heavy_strike'], expReward: 100, goldReward: 85,
+            trashDrop: [{ slot: 'necklace', name: '火焰核心', prob: 0.1 }] },
+          { name: '火山巨人', level: 14, hpMul: 1.5, atkMul: 1.0, defMul: 1.1, skills: ['heavy_strike', 'roar'], expReward: 115, goldReward: 95,
+            trashDrop: [{ slot: 'helmet', name: '巨人石盔', prob: 0.15 }, { slot: 'armor', name: '巨人铁甲', prob: 0.1 }] },
         ],
         count: 5,
       },
@@ -107,7 +130,14 @@ export const DUNGEONS = [
         name: 'Boss: 炎龙',
         isBoss: true,
         monsters: [
-          { name: '炎龙', level: 18, hpMul: 5.0, atkMul: 1.8, defMul: 1.5, skills: ['fury_combo', 'death_gaze', 'roar', 'heavy_strike'], expReward: 500, goldReward: 400, isBoss: true },
+          { name: '炎龙', level: 16, hpMul: 3.5, atkMul: 1.4, defMul: 1.2, skills: ['fury_combo', 'death_gaze', 'roar', 'heavy_strike'], expReward: 400, goldReward: 320, isBoss: true,
+            rareDrop: [
+              { type: 'equip', template: { slot: 'weapon', name: '炎龙逆鳞', fixedAffixes: [{ id: 'atk', value: 30 }, { id: 'critDmg', value: 25 }, { id: 'atkPercent', value: 5 }] }, prob: 0.1, quality: 'orange' },
+              { type: 'equip', template: { slot: 'ring', name: '龙血宝戒', fixedAffixes: [{ id: 'hp', value: 50 }, { id: 'hpPercent', value: 5 }, { id: 'crit', value: 3 }] }, prob: 0.1, quality: 'purple' },
+              { type: 'material', id: 'dragon_heart', prob: 0.2 },
+              { type: 'material', id: 'dragon_scale', prob: 0.5 },
+            ],
+          },
         ],
         count: 1,
       },

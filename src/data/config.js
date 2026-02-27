@@ -1,11 +1,11 @@
-export const VERSION = '1.0';
+export const VERSION = '1.1';
 
 export const MAX_LEVEL = 20;
 
 export const EXP_TABLE = (() => {
   const table = [0];
   for (let i = 1; i <= 100; i++) {
-    table[i] = Math.floor(50 * i * (1 + i * 0.3));
+    table[i] = Math.floor(40 * i * (1 + i * 0.25));
   }
   return table;
 })();
@@ -37,11 +37,11 @@ export const SELL_PRICE = {
 };
 
 export const BASE_STATS = {
-  hp: { name: '生命', base: 100, perLevel: 20 },
-  atk: { name: '攻击', base: 10, perLevel: 3 },
-  def: { name: '防御', base: 5, perLevel: 2 },
+  hp: { name: '生命', base: 100, perLevel: 22 },
+  atk: { name: '攻击', base: 10, perLevel: 3.5 },
+  def: { name: '防御', base: 5, perLevel: 2.2 },
   speed: { name: '速度', base: 10, perLevel: 1 },
-  crit: { name: '暴击率', base: 5, perLevel: 0 },
+  crit: { name: '暴击率', base: 5, perLevel: 0.2 },
   critDmg: { name: '暴击伤害', base: 150, perLevel: 0 },
 };
 
@@ -78,3 +78,5 @@ export const BAG_MAX_SIZE = 500;
 export const FIGHT_LOG_INTERVAL_MS = 350;
 
 export const AFK_RUN_INTERVAL_MS = 1500;
+
+export const TRASH_EQUIP_QUALITY = 'white';

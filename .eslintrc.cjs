@@ -39,7 +39,8 @@ module.exports = {
     'jsx-a11y/anchor-is-valid': 0,
     'default-param-last': 0,
     'no-useless-return': 0,
-    quotes: ['error', 'single'],
+    quotes: 0,
     radix: 0,
+    'object-property-newline': 0
   },
 };

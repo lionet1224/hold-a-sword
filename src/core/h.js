@@ -16,9 +16,37 @@ export class H {
     gameInstance.printStatus();
   }
 
-  skills() {
-    gameInstance.printSkills();
+  // ========== 技能树 ==========
+
+  tree() {
+    gameInstance.printSkillTree();
   }
+
+  learn(id) {
+    gameInstance.learnSkill(id);
+  }
+
+  // ========== 职业 ==========
+
+  classes() {
+    gameInstance.printClasses();
+  }
+
+  change(id) {
+    gameInstance.changeClass(id);
+  }
+
+  // ========== 召唤兽 ==========
+
+  summons() {
+    gameInstance.printSummons();
+  }
+
+  summon(id) {
+    gameInstance.setSummon(id);
+  }
+
+  // ========== 背包 ==========
 
   bag() {
     gameInstance.printBag();
@@ -52,6 +80,8 @@ export class H {
     gameInstance.sellAllByQuality(quality);
   }
 
+  // ========== 副本 ==========
+
   dungeons() {
     gameInstance.printDungeons();
   }
@@ -67,6 +97,8 @@ export class H {
   stop() {
     gameInstance.stopAfk();
   }
+
+  // ========== 待处理 ==========
 
   pending() {
     gameInstance.printPending();
@@ -88,6 +120,8 @@ export class H {
     gameInstance.trashAllPending();
   }
 
+  // ========== 锻造 & 强化 ==========
+
   mats() {
     gameInstance.printMaterials();
   }
@@ -103,6 +137,8 @@ export class H {
   enhance(slot) {
     gameInstance.enhanceItem(slot);
   }
+
+  // ========== 存档 ==========
 
   save() {
     gameInstance.save();
